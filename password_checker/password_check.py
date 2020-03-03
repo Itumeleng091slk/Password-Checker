@@ -30,7 +30,6 @@ class Passwordcheck(object):
         length_of_password  <=8
         return length_of_password <= 8
 
-
     def password_validate(self):
         lowercase = self.lowercase()
         uppercase = self.uppercase()
@@ -41,11 +40,7 @@ class Passwordcheck(object):
         result = lowercase and uppercase and special_letter and num_digits and length_of_password <= 8
 
         if result:
-            print("Passwords meets all necessary requirements") 
-            return True
-
-        elif not length_of_password <= 8:
-            raise Exception("Password should be atleast eight characters long")
+            print("Passwords meets all required") 
 
         elif not self.password == 0:
             raise Exception("Password should exist")
@@ -67,29 +62,68 @@ class Passwordcheck(object):
         else:
             pass
 
-    def password_is_ok(self):
-        """
-        8 characters length 
-        1 digit or more
-        1 special letter or more
-        1 uppercase or more
-        1 lowercase or more
-        """
-        # self.password = str(password)
-        length_error = len(self.password) <= 8
-        there_is_num_digit_error = re.search(r"[0-9]", self.password) is None
-        there_is_an_uppercase_error = re.search(r"[A-Z]", self.password) is None
-        there_is_a_lowercase_error = re.search(r"[a-z]",self.password) is None
-        there_is_a_special_letter_error = re.search(r"\W", self.password) is None
-        password_is_ok = not (length_error and there_is_num_digit_error and there_is_an_uppercase_error) or (there_is_a_special_letter_error and length_error and there_is_a_lowercase_error )
-        return {
-            'password_is_ok':password_is_ok,
-            'length_error':length_error,
-            'there_is_num_digit_error': there_is_num_digit_error,
-            'there_is_a_lowercase_error':there_is_a_lowercase_error,
-            'there_is_a_special_letter_error ':there_is_a_special_letter_error,
-        }
+    def password_is_ok(self, password):
+        condition_pass = 0
+        if len(password)==0:
+            return False
+        condition_pass +=1
+
+        if len(password) <= 8:
+            return False
+        condition_pass += 1
+
+        if self.num_digits() == True:
+            condition_pass +=1
+
+        if self.lowercase() == True:
+            condition_pass +=1
+
+        if self.special_letter() == True:
+            condition_pass +=1
+
+        if condition_pass >= 3:
+            return True
+        else:
+            return False
+
+
+
+if __name__== '__main__':
+
+    password = "Geeks$1102"
+    check_password = Passwordcheck(password)
+    
+    if(check_password.password_is_ok(password)== True):
+        print("password is ok!")
+    else:
+        print("password is wrong")
+
+    if(check_password.password_is_ok(password)== True):
+        print("password is valid")
+    else:
+        print("password is invalid")
+#         8 characters length 
+#         1 digit or more
+#         1 special letter or more
+#         1 uppercase or more
+#         1 lowercase or more
+#         """
+#         # self.password = str(password)
+#         length_error = len(self.password) <= 8
+#         there_is_num_digit_error = re.search(r"[0-9]", self.password) is None
+#         there_is_an_uppercase_error = re.search(r"[A-Z]", self.password) is None
+#         there_is_a_lowercase_error = re.search(r"[a-z]",self.password) is None
+#         there_is_a_special_letter_error = re.search(r"\W", self.password) is None
+#         password_is_ok = not (length_error and there_is_num_digit_error and there_is_an_uppercase_error) or (there_is_a_special_letter_error and length_error and there_is_a_lowercase_error )
+#         return {
+#             'password_is_ok':password_is_ok,
+#             'length_error':length_error,
+#             'there_is_num_digit_error': there_is_num_digit_error,
+#             'there_is_a_lowercase_error':there_is_a_lowercase_error,
+#             'there_is_a_special_letter_error ':there_is_a_special_letter_error,
+#         }
         
-C = Passwordcheck("Geeks$10")
-print(C.password_validate())
-print(C.password_is_ok())       
+# C = Passwordcheck("Geeks$10")
+# print(C.password_validate())
+# print(C.password_is_ok())       
+

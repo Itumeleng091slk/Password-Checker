@@ -1,5 +1,5 @@
 from password_checker.password_check import Passwordcheck
-password = "Freez10$"
+password = "Freeze10%"
 pass_checker = Passwordcheck(password)
 
 def test_password_is_ok():

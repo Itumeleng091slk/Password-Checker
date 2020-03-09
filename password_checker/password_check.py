@@ -98,7 +98,7 @@ if __name__== '__main__':
     else:
         print("password is wrong")
 
-    if(check_password.password_is_ok(password)== True):
+    if(check_password.password_validate()== True):
         print("password is valid")
     else:
         print("password is invalid")

@@ -14,8 +14,7 @@ def test_special_letter():
 def test_length_of_password():
     assert pass_checker.length_of_password() == True
 
-# def test_length():
-#     assert pass_checker.length() >= 8
+
    
 
    

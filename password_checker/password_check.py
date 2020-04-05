@@ -102,28 +102,4 @@ if __name__== '__main__':
         print("password is valid")
     else:
         print("password is invalid")
-#         8 characters length 
-#         1 digit or more
-#         1 special letter or more
-#         1 uppercase or more
-#         1 lowercase or more
-#         """
-#         # self.password = str(password)
-#         length_error = len(self.password) <= 8
-#         there_is_num_digit_error = re.search(r"[0-9]", self.password) is None
-#         there_is_an_uppercase_error = re.search(r"[A-Z]", self.password) is None
-#         there_is_a_lowercase_error = re.search(r"[a-z]",self.password) is None
-#         there_is_a_special_letter_error = re.search(r"\W", self.password) is None
-#         password_is_ok = not (length_error and there_is_num_digit_error and there_is_an_uppercase_error) or (there_is_a_special_letter_error and length_error and there_is_a_lowercase_error )
-#         return {
-#             'password_is_ok':password_is_ok,
-#             'length_error':length_error,
-#             'there_is_num_digit_error': there_is_num_digit_error,
-#             'there_is_a_lowercase_error':there_is_a_lowercase_error,
-#             'there_is_a_special_letter_error ':there_is_a_special_letter_error,
-#         }
-        
-# C = Passwordcheck("Geeks$10")
-# print(C.password_validate())
-# print(C.password_is_ok())       
 

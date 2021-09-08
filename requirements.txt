@@ -34,7 +34,7 @@ packaging==20.1
 -e git+https://github.com/Itumeleng091slk/Password-Checker.git@9cf834e543668970500b3e32754104341847a8a8#egg=password_checker
 pbr==5.4.4
 pexpect==4.2.1
-Pillow==5.1.0
+Pillow==8.3.2
 pluggy==0.13.1
 protobuf==3.0.0
 py==1.8.1
